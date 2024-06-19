@@ -5,7 +5,9 @@ import "codemirror/mode/xml/xml";
 import "codemirror/mode/css/css";
 import "codemirror/mode/javascript/javascript";
 import { Controlled as ControlledEditor } from "react-codemirror2";
-import { useEffect } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCompressAlt, faExpandAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Editor(props) {
     const {
@@ -17,10 +19,6 @@ export default function Editor(props) {
 
     const [open, setOpen] = useState(true);
 
-    useEffect(() => {
-        console.log("Editor Mounted", { language, displayName });
-    }, [language, displayName]);
-
     function handleChange(editor, data, value) {
         onChange(value);
     }
@@ -31,9 +29,13 @@ export default function Editor(props) {
                 {displayName}
                 <button
                     onClick={() => setOpen(prevOpen => !prevOpen)}
-                >O/C</button>
+                    type="button"
+                    className="expand-collapse-btn"
+                >
+                    <FontAwesomeIcon icon={open ? faCompressAlt : faExpandAlt} />
+                </button>
             </div>
-            <ControlledEditor 
+            <ControlledEditor
                 onBeforeChange={handleChange}
                 value={value}
                 className="code-mirror-wrapper"

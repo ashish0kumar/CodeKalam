@@ -1,7 +1,3 @@
-.react-codemirror2>.CodeMirror:first-child {
-    display: none;
-}
-
 body {
     margin: 0;
 }
@@ -30,6 +26,15 @@ body {
 
 .editor-container.collapsed .CodeMirror-scroll {
     position: absolute;
+    overflow: hidden !important;
+}
+
+.expand-collapse-btn {
+    margin-left: .5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 .editor-title {
