@@ -26,7 +26,7 @@ export default function Editor(props) {
     return (
         <div className={`editor-container ${open ? "" : "collapsed"}`}>
             <div className="editor-title">
-                {displayName}
+                <div className="editor-title-text">{displayName}</div>
                 <button
                     onClick={() => setOpen(prevOpen => !prevOpen)}
                     type="button"

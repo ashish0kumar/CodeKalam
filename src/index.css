@@ -1,9 +1,12 @@
 body {
     margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
 }
 
 .top-pane {
-    background-color: hsl(225, 6%, 25%);
+    background-color: #010101;
+    padding: 1rem .5rem;
 }
 
 .pane {
@@ -17,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: .5rem;
-    background-color: hsl(225, 6%, 25%);
+    background-color: #010101;
 }
 
 .editor-container.collapsed {
@@ -30,7 +33,7 @@ body {
 }
 
 .expand-collapse-btn {
-    margin-left: .5rem;
+    margin: 0 .5rem;
     background: none;
     border: none;
     color: white;
@@ -40,18 +43,32 @@ body {
 .editor-title {
     display: flex;
     justify-content: space-between;
-    background-color: hsl(225, 6%, 13%);
-    color: white;
-    padding: .5rem .5rem .5rem 1rem;
-    border-radius: .5rem .5rem 0 0;
+    background-color: #060606;
+    border-top: 1px solid #2f2f2f;
+    border-left: 1px solid rgba(150, 150, 150, 0.5);
+    border-right: 1px solid rgba(150, 150, 150, 0.5);
+    color: #aaaebc;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.editor-title-text {
+    padding: .3rem 1rem;
+    width: fit-content;
+    height: 100%;
+    background-color: #263238;
+    border-top: 3px solid rgba(100, 100, 100, 0.5);
 }
 
 .CodeMirror {
     height: 100% !important;
+    font-size: 14px !important;
 }
 
 .code-mirror-wrapper {
     flex-grow: 1;
-    border-radius: 0 0 .5rem .5rem;
+    border-left: 1px solid rgba(150, 150, 150, 0.5);
+    border-right: 1px solid rgba(150, 150, 150, 0.5);
+    border-bottom: 1px solid rgba(150, 150, 150, 0.5);
     overflow: hidden;
 }
