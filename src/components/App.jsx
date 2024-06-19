@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../App.css'
 import Editor from './Editor'
 
@@ -6,12 +6,26 @@ function App() {
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");
+  const [srcDoc, setSrcDoc] = useState("");
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSrcDoc(`
+        <html>
+          <body>${html}</body>
+          <style>${css}</style>
+          <script>${js}</script>
+        </html>
+      `);
+    }, 250);
+
+    return () => clearTimeout(timeout);
+  }, [html, css, js]);
 
   return (
     <>
       <div className="pane top-pane">
         <Editor
-          key="html-editor"
           language="xml"
           displayName="HTML"
           value={html}
@@ -19,7 +33,6 @@ function App() {
         />
 
         <Editor
-          key="css-editor"
           language="css"
           displayName="CSS"
           value={css}
@@ -27,7 +40,6 @@ function App() {
         />
 
         <Editor
-          key="js-editor"
           language="javascript"
           displayName="JS"
           value={js}
@@ -37,6 +49,7 @@ function App() {
 
       <div className="pane">
         <iframe
+          srcDoc={srcDoc}
           title="output"
           sandbox="allow-scripts"
           frameBorder="0"
