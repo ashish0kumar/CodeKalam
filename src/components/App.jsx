@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import '../App.css'
 import Editor from './Editor'
 import useLocalStorage from '../hooks/useLocalStorage';
+import { faHtml5, faCss3, faJs } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
   const [html, setHtml] = useLocalStorage("html", "");
@@ -31,6 +32,7 @@ function App() {
           displayName="HTML"
           value={html}
           onChange={setHtml}
+          icon={faHtml5}
         />
 
         <Editor
@@ -38,6 +40,7 @@ function App() {
           displayName="CSS"
           value={css}
           onChange={setCss}
+          icon={faCss3}
         />
 
         <Editor
@@ -45,6 +48,7 @@ function App() {
           displayName="JS"
           value={js}
           onChange={setJs}
+          icon={faJs}
         />
       </div>
 

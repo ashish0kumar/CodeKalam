@@ -53,11 +53,18 @@ body {
 }
 
 .editor-title-text {
+    display: flex;
+    gap: 8px;
     padding: .3rem 1rem;
     width: fit-content;
     height: 100%;
     background-color: #263238;
     border-top: 3px solid rgba(100, 100, 100, 0.5);
+}
+
+.editor-title-text img {
+    width: 15px;
+    margin: 5px 8px 0 0;
 }
 
 .CodeMirror {
